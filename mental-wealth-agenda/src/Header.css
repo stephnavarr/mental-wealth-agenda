@@ -1,0 +1,30 @@
+/* Default styles for the header */
+.logo {
+  width: 120px; /* Adjust as needed */
+  height: 31px; /* Adjust as needed */
+  /* Add other styles for your logo */
+}
+
+/* Styles for the menu in desktop view */
+.menu-desktop {
+  display: block;
+}
+
+/* Styles for the menu button in mobile view */
+.menu-mobile {
+  display: none;
+  width: 2rem;
+}
+
+/* Media query for small screens */
+@media screen and (max-width: 768px) {
+  /* Hide the desktop menu and show the mobile menu button */
+  .menu-desktop {
+    display: none;
+  }
+
+  /* Show the mobile menu button */
+  .menu-mobile {
+    display: block;
+  }
+}
