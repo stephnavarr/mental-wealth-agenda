@@ -18,8 +18,8 @@ jobs:
         with:
           node-version: '18.17'
 
-       - name: Install Dependencies
-         run: |
+      - name: Install Dependencies
+        run: |
           cd libra-app
           npm install
 
