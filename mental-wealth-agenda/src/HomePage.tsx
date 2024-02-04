@@ -1,4 +1,4 @@
-import { Layout, Menu, Button, Typography } from 'antd';
+import { Layout, Button, Typography } from 'antd';
 import { Link } from 'react-router-dom'; // Assuming you're using React Router for navigation
 
 const { Content, Footer } = Layout;
