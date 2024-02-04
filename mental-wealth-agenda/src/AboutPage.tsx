@@ -1,7 +1,7 @@
 function AboutPage()
 {
     return (
-        <div></div>
+        <div>-</div>
     )
 }
 
