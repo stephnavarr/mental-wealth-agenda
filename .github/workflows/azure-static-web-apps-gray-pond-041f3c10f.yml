@@ -39,5 +39,5 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_GRAY_POND_041F3C10F }}
           action: "upload"
-          app_location: "mental-wealth-agenda/dist"
+          app_location: "/dist"
           output_location: "build"
