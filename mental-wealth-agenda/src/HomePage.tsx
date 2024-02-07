@@ -5,6 +5,7 @@ const { Content, Footer } = Layout;
 const { Title, Paragraph } = Typography;
 
 const HomePage = () => {
+  const isMobile = window.innerWidth <= 800;
   return (
     <Layout className="layout">
       <Content style={{ padding: '50px' }}>
@@ -60,10 +61,22 @@ const HomePage = () => {
           </div>
 
           {/* Call-to-action buttons */}
-          <Button type="primary" size="large" style={{ marginRight: '10px' }}>
+          <Button
+            type="primary"
+            size={isMobile ? 'small' : 'large'}
+            style={{
+              marginRight: '10px',
+              fontWeight: 600,
+              fontSize: '0.8rem',
+            }}
+          >
             <Link to="/episodes">Explore Podcasts</Link>
           </Button>
-          <Button type="primary" size="large">
+          <Button
+            type="primary"
+            size={isMobile ? 'small' : 'large'}
+            style={{ fontWeight: 600, fontSize: '0.8rem' }}
+          >
             <Link to="/blog">Read Blog</Link>
           </Button>
         </div>

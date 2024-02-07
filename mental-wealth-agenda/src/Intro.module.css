@@ -1,18 +1,28 @@
 /* HomePageAnimation.module.css */
 .container {
   display: flex;
+  flex-direction: column; /* Stack texts vertically on smaller screens */
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100vh; /* Reduce container height for smaller screens */
   background-color: lightblue;
   color: black;
-  gap: 0.5rem;
+  gap: 1rem; /* Increase gap between texts */
+  padding: 1rem; /* Add padding for better spacing */
 }
 
 .animationText {
-  transition: opacity 1s ease-in-out; /* Remove opacity property */
+  font-size: 2rem; /* Adjust font size for smaller screens */
+  transition: opacity 1s ease-in-out;
 }
 
 .hidden {
   opacity: 0;
+}
+
+/* Add media query for smaller screens */
+@media screen and (max-width: 1100px) {
+  .animationText {
+    font-size: 1.5rem; /* Adjust font size for smaller screens */
+  }
 }

@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import { Layout, Menu, Drawer, Button } from 'antd';
 import { Link } from 'react-router-dom';
+import { MenuOutlined } from '@ant-design/icons';
 import './Header.css';
 
 const { Header } = Layout;
 
 const MyHeader = () => {
   const [visible, setVisible] = useState(false);
-  const isMobile = window.innerWidth <= 768;
+  const isMobile = window.innerWidth <= 800;
 
   const showDrawer = () => {
     setVisible(true);
@@ -18,13 +19,17 @@ const MyHeader = () => {
   };
 
   return (
-    <Header style={{ backgroundColor: 'white', height: '15vh'}}>
+    <Header
+      style={{ backgroundColor: 'white', margin: 0, height: isMobile ? '2vh' : 'auto' }}
+    >
       {' '}
       {/* Apply custom background color */}
       <div className="logo" />
       {isMobile ? (
         <div className="menu-mobile">
-          <Button type="primary" onClick={showDrawer}></Button>
+          <Button style={{ border: 'none' }} onClick={showDrawer}>
+            <MenuOutlined />
+          </Button>
           <Drawer
             title="Menu"
             placement="left"
