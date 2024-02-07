@@ -7,7 +7,7 @@ const { Header } = Layout;
 
 const MyHeader = () => {
   const [visible, setVisible] = useState(false);
-  const isMobile = window.innerWidth <= 768; // Define the breakpoint (example: 768px)
+  const isMobile = window.innerWidth <= 768;
 
   const showDrawer = () => {
     setVisible(true);
@@ -18,13 +18,13 @@ const MyHeader = () => {
   };
 
   return (
-    <Header>
+    <Header style={{ backgroundColor: 'white', height: '15vh'}}>
+      {' '}
+      {/* Apply custom background color */}
       <div className="logo" />
       {isMobile ? (
         <div className="menu-mobile">
-          <Button type="primary" onClick={showDrawer}>
-            Menu
-          </Button>
+          <Button type="primary" onClick={showDrawer}></Button>
           <Drawer
             title="Menu"
             placement="left"
@@ -35,7 +35,7 @@ const MyHeader = () => {
           >
             <Menu mode="inline" onClick={onClose}>
               <Menu.Item key="home">
-                <Link to="/">Home</Link>{' '}
+                <Link to="/">The Agenda</Link>{' '}
               </Menu.Item>
               <Menu.Item key="episodes">
                 <Link to="/episodes">Episodes</Link>
@@ -52,7 +52,9 @@ const MyHeader = () => {
       ) : (
         <div className="menu-desktop">
           <Menu mode="horizontal" defaultSelectedKeys={['home']}>
-            <Menu.Item key="home">Home<Link to="/"></Link></Menu.Item>
+            <Menu.Item key="home">
+              The Agenda<Link to="/"></Link>
+            </Menu.Item>
 
             <Menu.Item key="episodes">
               <Link to="/episodes">Episodes</Link>

@@ -8,23 +8,15 @@ const Episodes = () => {
   const episodes = [
     {
       id: 1,
-      title: 'Episode 1: Introduction to Mental Health',
+      title: 'Episode 1: Introduction to the Agenda',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      releaseDate: 'December 15, 2023',
+      releaseDate: 'January 28, 2023',
     },
-    {
-      id: 2,
-      title: 'Episode 2: Coping Strategies for Stress',
-      description:
-        'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      releaseDate: 'January 10, 2024',
-    },
-    // Add more episodes here...
   ];
 
   return (
     <Layout className="layout">
-      <Content style={{ padding: '50px' }}>
+      <Content style={{ padding: '30px' }}>
         <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
           <Title level={1}>Episodes</Title>
           <img

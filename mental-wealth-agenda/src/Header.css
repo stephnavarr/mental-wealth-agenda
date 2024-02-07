@@ -12,7 +12,7 @@
 
 /* Styles for the menu button in mobile view */
 .menu-mobile {
-  display: none;
+  /* display: none; */
   width: 2rem;
 }
 
