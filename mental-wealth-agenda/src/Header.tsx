@@ -1,10 +1,6 @@
 import { useState } from 'react';
-import { Layout, Menu, Drawer, Button } from 'antd';
 import { Link } from 'react-router-dom';
-import { MenuOutlined } from '@ant-design/icons';
-import './Header.css';
-
-const { Header } = Layout;
+import { IoIosMenu } from "react-icons/io";
 
 const MyHeader = () => {
   const [visible, setVisible] = useState(false);
@@ -19,62 +15,96 @@ const MyHeader = () => {
   };
 
   return (
-    <Header
-      style={{ backgroundColor: 'white', margin: 0, height: isMobile ? '2vh' : 'auto' }}
-    >
-      {' '}
-      {/* Apply custom background color */}
-      <div className="logo" />
-      {isMobile ? (
-        <div className="menu-mobile">
-          <Button style={{ border: 'none' }} onClick={showDrawer}>
-            <MenuOutlined />
-          </Button>
-          <Drawer
-            title="Menu"
-            placement="left"
-            closable={false}
-            onClose={onClose}
-            open={visible}
-            width={200}
-          >
-            <Menu mode="inline" onClick={onClose}>
-              <Menu.Item key="home">
-                <Link to="/">The Agenda</Link>{' '}
-              </Menu.Item>
-              <Menu.Item key="episodes">
-                <Link to="/episodes">Episodes</Link>
-              </Menu.Item>
-              <Menu.Item key="blog">
-                <Link to="/blog">Blog</Link>
-              </Menu.Item>
-              {/* <Menu.Item key="about">
-                <Link to="/about">About</Link>
-              </Menu.Item> */}
-            </Menu>
-          </Drawer>
+    <header className="bg-white">
+      <div className="flex items-center justify-between px-4 py-2">
+        <div className="flex-shrink-0">
+            <Link
+              to="/"
+              className="text-gray-900 hover:text-gray-700"
+              onClick={onClose}
+            >
+              The Agenda
+            </Link>
         </div>
-      ) : (
-        <div className="menu-desktop">
-          <Menu mode="horizontal" defaultSelectedKeys={['home']}>
-            <Menu.Item key="home">
-              The Agenda<Link to="/"></Link>
-            </Menu.Item>
-
-            <Menu.Item key="episodes">
-              <Link to="/episodes">Episodes</Link>
-            </Menu.Item>
-            <Menu.Item key="blog">
-              <Link to="/blog">Blog</Link>
-            </Menu.Item>
-            <Menu.Item key="about">
-              <Link to="/about">About</Link>
-            </Menu.Item>
-          </Menu>
-        </div>
-      )}
-    </Header>
+        {isMobile ? (
+          <div className="flex items-center">
+            <button
+              className="text-gray-900 focus:outline-none"
+              onClick={showDrawer}
+            >
+              <IoIosMenu className="h-6 w-6" />
+            </button>
+            <div
+              className={`fixed inset-0 bg-black bg-opacity-50 z-50 ${
+                visible ? 'block' : 'hidden'
+              }`}
+              onClick={onClose}
+            ></div>
+            <div
+              className={`fixed inset-y-0 left-0 w-64 bg-white z-50 ${
+                visible ? 'block' : 'hidden'
+              }`}
+            >
+              <div className="p-4">
+                <button
+                  className="text-gray-900 focus:outline-none"
+                  onClick={onClose}
+                >
+                  &times;
+                </button>
+              </div>
+              <nav className="px-4 py-2">
+                <ul>
+                  <li className="mb-2">
+                    <Link
+                      to="/episodes"
+                      className="text-gray-900 hover:text-gray-700"
+                      onClick={onClose}
+                    >
+                      Episodes
+                    </Link>
+                  </li>
+                  <li className="mb-2">
+                    <Link
+                      to="/blog"
+                      className="text-gray-900 hover:text-gray-700"
+                      onClick={onClose}
+                    >
+                      Blog
+                    </Link>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        ) : (
+          <nav className="hidden md:block">
+            <ul className="flex space-x-4">
+              <li>
+                <Link
+                  to="/episodes"
+                  className="text-gray-900 hover:text-gray-700"
+                >
+                  Episodes
+                </Link>
+              </li>
+              <li>
+                <Link to="/blog" className="text-gray-900 hover:text-gray-700">
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link to="/about" className="text-gray-900 hover:text-gray-700">
+                  About
+                </Link>
+              </li>
+            </ul>
+          </nav>
+        )}
+      </div>
+    </header>
   );
 };
 
 export default MyHeader;
+

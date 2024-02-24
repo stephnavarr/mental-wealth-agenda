@@ -1,10 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Outfit' !important;
+  /* Additional styles */
+  /* Make sure the background covers the entire viewport */
+  background-size: cover;
+  /* Ensure the background covers the entire viewport */
+  background-position: center;
+  /* Ensure the background stays fixed as the user scrolls */
+  background-attachment: fixed;
 }
 
 code {
@@ -12,3 +18,7 @@ code {
     monospace;
 }
 
+@font-face {
+  font-family: 'Outfit';
+  src: url('./assets//fonts/Outfit/Outfit-VariableFont_wght.ttf');
+}

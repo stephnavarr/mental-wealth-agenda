@@ -5,13 +5,17 @@ import {
   Route,
   Navigate,
 } from 'react-router-dom';
+import { ConfigProvider, Typography } from 'antd'; // Import ConfigProvider and Typography from Ant Design
 import './App.css';
-import HomePage from './HomePage';
+import HomePage from './components/Home/HomePage';
 import BlogPage from './BlogPage';
-import Episodes from './Episodes';
+import Episodes from './listener/Episodes';
 import Header from './Header';
 import AboutPage from './AboutPage';
 import HomePageAnimation from './Intro';
+
+// Import your fonts CSS file
+import './assets/fonts/Outfit/Outfit-VariableFont_wght.ttf';
 
 function App() {
   const [showAnimation, setShowAnimation] = useState(true);
@@ -28,27 +32,34 @@ function App() {
     return () => clearTimeout(timeoutId);
   }, []);
 
+  // Define your custom font family
+  const customFontFamily = "'Outfit', sans-serif";
+
   return (
-    <Router>
-      {showAnimation ? (
-        <HomePageAnimation />
-      ) : (
-        <>
-          <FadeIn>
-            <Header />
-          </FadeIn>
-          <FadeIn>
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/blog" element={<BlogPage />} />
-              <Route path="/episodes" element={<Episodes />} />
-              <Route path="/about" element={<AboutPage />} />
-              <Route path="*" element={<Navigate to="/" replace />} />
-            </Routes>
-          </FadeIn>
-        </>
-      )}
-    </Router>
+    <ConfigProvider>
+      <Router>
+        {showAnimation ? (
+          <HomePageAnimation />
+        ) : (
+          <>
+            <FadeIn>
+              <Header />
+            </FadeIn>
+            <FadeIn>
+              <Typography style={{ fontFamily: customFontFamily }}>
+                <Routes>
+                  <Route path="/" element={<HomePage />} />
+                  <Route path="/blog" element={<BlogPage />} />
+                  <Route path="/episodes" element={<Episodes />} />
+                  <Route path="/about" element={<AboutPage />} />
+                  <Route path="*" element={<Navigate to="/" replace />} />
+                </Routes>
+              </Typography>
+            </FadeIn>
+          </>
+        )}
+      </Router>
+    </ConfigProvider>
   );
 }
 
