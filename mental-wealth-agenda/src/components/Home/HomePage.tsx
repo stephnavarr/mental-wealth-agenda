@@ -104,13 +104,13 @@ const HomePage = () => {
           <img
             src={support}
             alt="Support Image"
-            className="h-auto w-full"
+            className="h-full w-full"
             style={{ filter: 'sepia(100%) hue-rotate(195deg) saturate(500%)' }}
           />
           <img
             src={lovewhoyouare}
             alt="Support Image"
-            className="h-auto w-full"
+            className="h-full w-full"
             style={{ filter: 'sepia(100%) hue-rotate(190deg) saturate(300%)' }}
           />
         </div>
