@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Routes,
@@ -46,7 +46,6 @@ function App() {
               <Header />
             </FadeIn>
             <FadeIn>
-              <Typography style={{ fontFamily: customFontFamily }}>
                 <Routes>
                   <Route path="/" element={<HomePage />} />
                   <Route path="/blog" element={<BlogPage />} />
@@ -54,7 +53,6 @@ function App() {
                   <Route path="/about" element={<AboutPage />} />
                   <Route path="*" element={<Navigate to="/" replace />} />
                 </Routes>
-              </Typography>
             </FadeIn>
           </>
         )}
